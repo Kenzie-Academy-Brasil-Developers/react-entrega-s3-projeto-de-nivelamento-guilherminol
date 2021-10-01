@@ -47,13 +47,19 @@ function App() {
         <p>
           Total da compra:{" "}
           {cart
-            .reduce((acc, atual) => acc + atual.price - atual.discount, 0)
+            .reduce(
+              (acc, atual) =>
+                acc + Number(atual.price) - Number(atual.discount),
+              0
+            )
             .toFixed(2)}
         </p>
         <h3>
           {" "}
           Desconto especial:{" "}
-          {cart.reduce((acc, item) => acc + item.discount, 0).toFixed(2)}
+          {cart
+            .reduce((acc, item) => acc + Number(item.discount), 0)
+            .toFixed(2)}
         </h3>
         <Form products={products} setProducts={setProducts}></Form>
         <ProductsList products={products} addToCart={addToCart}></ProductsList>

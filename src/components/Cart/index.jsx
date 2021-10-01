@@ -8,8 +8,10 @@ const Cart = ({ cart, removeFromCart }) => {
             <li key={key}>
               <h3>{item.name}</h3>
               <p>{item.description}</p>
-              <p>Preço Original: R$ {item.price.toFixed(2)}</p>
-              <p>Promoção: R$ {(item.price - item.discount).toFixed(2)}</p>
+              <p>Preço Original: R$ {Number(item.price).toFixed(2)}</p>
+              <p>
+                Promoção: R$ {Number(item.price - item.discount).toFixed(2)}
+              </p>
               <button onClick={() => removeFromCart(item.code)}>Remover</button>
             </li>
           );
